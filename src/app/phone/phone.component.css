@@ -1,0 +1,68 @@
+.bybrand{
+  width: 250px;
+  height: 300px;
+  border: 1px solid #e4e7ed;
+  margin: 0 0 10px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  box-shadow: 5px 10px #dad6d6;
+}
+
+.byprice {
+  width: 250px;
+  height: 200px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  /*color: #333;*/
+}
+
+.byprice select{
+  width: 100%;
+  box-shadow: 5px 10px #dad6d6;
+}
+.bybrand label{
+  padding-top: 4px;
+}
+
+h5{
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.bybrand label:hover{
+  color: #d10024;
+  cursor: pointer;
+}
+
+.bybrand div {
+  margin: 8px;
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+  background: #d10024;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #d10024;
+  background-color: #d10024;
+}
+.container{
+  margin-top: 26px;
+}
+
+::ng-deep .mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label, .mat-accent .mat-slider-track-fill {
+  background-color: #d10024;
+}
+::ng-deep .mat-accent .mat-slider-thumb-label {
+  background-color: #d10024;
+}
+::ng-deep .mat-accent .mat-slider-track-fill {
+  background-color: #d10024;
+}
+.value{
+  font-size: 15px;
+  font-weight: bold;
+}
