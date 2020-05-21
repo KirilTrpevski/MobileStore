@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSliderModule} from '@angular/material/slider';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,9 @@ import { ContactComponent } from './contact/contact.component';
 import { HotDealsComponent } from './hot-deals/hot-deals.component';
 import { PhoneItemComponent } from './phone/phone-item/phone-item.component';
 import { PhoneComponent } from './phone/phone.component';
+import { PhoneDetailsComponent } from './phone/phone-details/phone-details.component';
+import { NewComponent } from './new/new.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -22,7 +26,9 @@ import { PhoneComponent } from './phone/phone.component';
     ContactComponent,
     HotDealsComponent,
     PhoneItemComponent,
-    PhoneComponent
+    PhoneComponent,
+    PhoneDetailsComponent,
+    NewComponent
   ],
     imports: [
         BrowserModule,
@@ -31,7 +37,9 @@ import { PhoneComponent } from './phone/phone.component';
         FormsModule,
         ReactiveFormsModule,
         MatSliderModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        HttpClientModule,
+        FontAwesomeModule
     ],
   providers: [],
   bootstrap: [AppComponent]
