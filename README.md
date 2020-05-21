@@ -1,27 +1,40 @@
-# MobileStore
+# Број на проект 59 - Веб апликација за онлајн продажба на мобилни телефони
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
+Во рамките на овој проект изработивме аплиакција за онлајн купување на мобилни телефони. Одкако корисникот ќе се најави тој може да навигира низ веб страната преку менито. Корисникот може да додава продукти во кошникчата и во wishlist. Направивме и admin panel каде што сопственикот или одржувачот на веб страната ќе може да додава нови продукти на страната.
 
-## Development server
+## Изработиле
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Кирил Трпевски 151230
+Марко Манчов 151211
 
-## Code scaffolding
+## Технологии
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+За изработка на проектот ги користевме следните технологии/алатки:
+  -Angular 9
+  -Font Awesome
+  -Bootstrap 4+
+  -Firebase (за зачувување на продуктите)
+  
+## Работна верзија
 
-## Build
+Веб апликацијата е достапна на следниот линк //линк овде
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Инсталација
 
-## Running unit tests
+Симнете го проектот со командата: git clone https://github.com/KirilTrpevski/MobileStore
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Навигирајте во фолдерот и инсталирајте ги потребните работи за една Angular апликација
+  -NodeJS
+  -Angular
+Другите dependecies би требало да се иснталирани од предходно. (bootstrap, font-awesome, angular modules...)
 
-## Running end-to-end tests
+## Извршување
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Апликацијата можете да ја извршите на следниот начин:
+  ng serve -o
+со последниот дел -о кога апликацијата ќе се стартува самата ќе се отвори во нов прозорец на default-ниот пребарувач
 
-## Further help
+Исто така апликацијата можете да ја извршите и на следнот начин:
+  ng serve
+со тоа што потоа сами ќе морате да отворите на http://localhost:4200/
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
