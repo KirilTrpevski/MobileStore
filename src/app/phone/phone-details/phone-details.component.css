@@ -1,0 +1,75 @@
+img {
+ max-width: 350px;
+  max-height: 400px;
+}
+.card button:hover{
+  color: #D10024;
+  transition: 0.2s;
+}
+
+.card button{
+  color: #77767c;
+}
+label{
+  font-weight: bold;
+}
+.add-to-card {
+  background-color: #D10024;
+  color: white;
+}
+.add-to-wishlist{
+  background-color: #D10024;
+  color: white;
+  margin-left: 10px;
+}
+.afterImg strong {
+  font-size: 30px;
+}
+.icons i{
+  width: 60px;
+  max-height: 30px;
+  text-align: center;
+}
+.footer p{
+  width: 70%;
+}
+.copyright{
+  background-color:#1e1f29;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.copyright p{
+  color: white;
+}
+.copyright i{
+  color: white;
+  margin: 0 5px 0 5px;
+}
+
+.footer{
+  background: #15161d;
+  color: #77767c;
+}
+.footer h5{
+  color: white;
+  font-size: 20px;
+}
+.footer i{
+  color: #D10024;
+  width: 30px;
+  margin: 9px 2px 9px 0;
+}
+.footer ul {
+  list-style: none;
+}
+.nav-link:hover{
+  color: #D10024;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+a {
+  color: #77767c;
+}
+.btn-link{
+  text-decoration: none;
+}

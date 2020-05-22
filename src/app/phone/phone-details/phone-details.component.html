@@ -1,0 +1,188 @@
+<div class="row mt-5">
+  <div class="col-md-5">
+    <h2 class="text-center">{{phone.name}}</h2>
+    <div class="text-center">
+      <img class="text-center" src="{{phone.image}}">
+    </div>
+
+    <div class="text-center afterImg">
+
+        <strong>{{phone.price | currency}}</strong><br>
+      <button class="btn add-to-card">Add to card <i class="fa fa-shopping-cart"></i></button>
+      <button class="btn add-to-wishlist">Add to wishlist <i class="fa fa-heart-o"></i></button>
+    </div>
+    <div class="text-left mt-5 icons">
+      <p><i class="fa fa-microchip fa-2x"> </i> <span>{{phone.processor}}</span></p>
+      <p><i class="fa fa-mobile fa-2x"></i> <span>{{phone.displaySize}}</span></p>
+      <p> <i class="fa fa-camera fa-2x"></i> <span>{{phone.camera}}</span></p>
+      <p> <i class="fa fa-database fa-2x"></i> <span>{{phone.storage}} of storage</span></p>
+    </div>
+
+  </div>
+  <div class="col-md-7 mt-4 mb-5 align-items-center">
+    <div>
+      <div id="accordion" class="mt-5">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Specifications <i class="fa fa-plus"></i>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <label>Display size: </label>
+              {{phone.displaySize}}<br>
+              <label>Display resolution: </label>
+              {{phone.displayResolution}}<br>
+              <label>Camera: </label>
+              {{phone.camera}}<br>
+              <label>CPU: </label>
+              {{phone.processor}}<br>
+              <label>GPU </label>
+              {{phone.gpu}}<br>
+              <label>Operating system: </label>
+              {{phone.os}}<br>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Memory <i class="fa fa-plus"></i>
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+              <label>Memory storage: </label>
+              {{phone.storage}}<br>
+              <label>RAM: </label>
+              {{phone.ram}}
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Batery <i class="fa fa-plus"></i>
+              </button>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              <label>Batery: </label>
+              {{phone.batery}}
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Description <i class="fa fa-plus"></i>
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body">
+              <label>Desciprion: </label>
+              <p>
+                {{phone.desc}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row pl-5 pb-5 pt-5 footer justify-content-center">
+  <div class="col-xl-3 pl-5">
+    <h5>ABOUT US</h5>
+    <p>Some dummy text for out company similar to lorem ipsum but a little different</p>
+    <i class="fa fa-map-marker"></i><span> Rugjer Boshkovikj 16, Skopje</span><br>
+    <i class="fa fa-phone"></i><span> +389 78 555-555</span><br>
+    <i class="fa fa-envelope"></i><span> mobile@store.com</span>
+  </div>
+  <div class="col-xl-3 pl-5">
+    <h5>SERVICE</h5>
+    <nav  class="navbar pl-0">
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link">Shopping cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Wishlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Weekly deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">New!</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="col-xl-3 pl-5">
+    <h5>MENU</h5>
+    <nav class="navbar pl-0">
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item" [routerLinkActive]="'active'">
+            <a class="nav-link" routerLink="/home">Home</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="'active'">
+            <a class="nav-link" routerLink="/phones">Phones</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="'active'">
+            <a class="nav-link" routerLink="/hot-deals">Hot deals</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="'active'">
+            <a class="nav-link" routerLink="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="col-xl-3 pl-5">
+    <h5>BRANDS</h5>
+    <nav class="navbar pl-0">
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link">Apple</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Samsung</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Huawei</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">LG</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<div class="row copyright">
+  <div class="col-xl-12 text-center">
+    <div>
+      <i class="fa fa-cc-visa fa-3x"></i>
+      <i class="fa fa-cc-paypal fa-3x"></i>
+      <i class="fa fa-cc-amex fa-3x"></i>
+      <i class="fa fa-cc-mastercard fa-3x"></i>
+      <i class="fa fa-cc-discover fa-3x"></i>
+    </div>
+    <p class="small pt-4">Copyright ©2020 All rights reserved | Kiril and Marco</p>
+  </div>
+</div>

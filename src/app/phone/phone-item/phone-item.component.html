@@ -1,0 +1,24 @@
+<div class="card rounded-0" style="width: 13rem;">
+  <a style="cursor: pointer;" [routerLink]="phone.name"><img class="card-img-top" [src] = phone.image alt="Card image cap" /></a>
+  <div class="card-body">
+    <h6 class="text-muted text-center">{{phone.name}}</h6>
+    <p class="card-text text-center">
+      {{phone.price | currency}}
+    </p>
+    <div class="text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-4">
+            <i class="fa fa-heart-o btn"></i>
+          </div>
+          <div class="col-sm-4">
+            <i class="fa fa-shopping-cart btn"></i>
+          </div>
+          <div class="col-sm-4">
+            <i class="fa fa-eye btn"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

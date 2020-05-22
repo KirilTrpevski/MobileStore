@@ -1,0 +1,44 @@
+.card:hover{
+  border: 1px solid #D10024;
+  transition: 0.2s;
+}
+.fa-heart-o{
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  line-height: 170%;
+  border-radius: 50%;
+}
+
+.fa-heart-o:hover{
+  background-color: #e4e7ed;
+  transition: 0.3s ease-in-out;
+  color: #D10024;
+}
+.fa-shopping-cart{
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  line-height: 170%;
+  border-radius: 50%;
+}
+
+.fa-shopping-cart:hover{
+  background-color: #e4e7ed;
+  transition: 0.3s ease-in-out;
+  color: #D10024;
+}
+
+.fa-eye{
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  line-height: 170%;
+  border-radius: 50%;
+}
+
+.fa-eye:hover{
+  background-color: #e4e7ed;
+  transition: 0.3s ease-in-out;
+  color: #D10024;
+}
