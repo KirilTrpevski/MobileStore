@@ -16,6 +16,7 @@ import { PhoneComponent } from './phone/phone.component';
 import { PhoneDetailsComponent } from './phone/phone-details/phone-details.component';
 import { NewComponent } from './new/new.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         MatSliderModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        CommonModule
     ],
   providers: [],
   bootstrap: [AppComponent]
