@@ -1,0 +1,53 @@
+.header{
+  background: #15161d;
+  border-bottom: 2px solid #D10024;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.btn-danger {
+  border-radius: 0 20px 20px 0;
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 50%;
+  height: 40px;
+  display: inline-block;
+  border-radius: 20px 0 0 20px;
+}
+
+p{
+  color: white;
+}
+.fa{
+  color: white;
+}
+
+.qty{
+  position: absolute;
+  line-height: 20px;
+  font-size: 10px;
+  height: 20px;
+  width: 20px;
+  background-color: #D10024;
+  color: white;
+  border-radius: 50%;
+}
+
+.navbar{
+  display: inline-block;
+}
+
+.navbar a{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.logo img {
+  /*max-height: 150px;*/
+  max-width: 140px;
+}

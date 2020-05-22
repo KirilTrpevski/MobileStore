@@ -1,0 +1,54 @@
+<div class="row justify-content-center mt-4">
+  <div class="col-md-6">
+    <div class="alert-info">
+      <p>Here as admin you can insert a new phone into the store.</p>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Name:</label>
+        <input class="form-control" placeholder="Name" ngModel name="name" #name="ngModel">
+        <label>Price: </label>
+        <input class="form-control" placeholder="Price" ngModel name="price" #price="ngModel">
+        <label>Image: </label>
+        <input class="form-control" placeholder="Image URL" ngModel name="image" #image="ngModel">
+        <label>Brand: </label>
+        <input class="form-control" placeholder="Brand" ngModel name="brand" #brand="ngModel">
+        <label>Description: </label>
+        <textarea rows="4" class="form-control" placeholder="Description..." ngModel name="desc" #desc="ngModel"></textarea>
+      </div>
+      <div class="form-group">
+        <h3>Specifications</h3>
+        <label>Ram: </label>
+        <input class="form-control" placeholder="Ram" ngModel name="ram" #ram="ngModel">
+        <label>CPU: </label>
+        <input class="form-control" placeholder="Processor" ngModel name="processor" #cpu="ngModel">
+        <label>GPU: </label>
+        <input class="form-control" placeholder="Graphic card" ngModel name="gpu" #gpu="ngModel">
+        <label>Display size: </label>
+        <input class="form-control" placeholder="Display size" ngModel name="displaySize" #displaySize="ngModel">
+        <label>Display resolution: </label>
+        <input class="form-control" placeholder="Display resolution" ngModel name="displayResolution" #displayResolution="ngModel">
+        <label>Storage: </label>
+        <input class="form-control" placeholder="Storage" ngModel name="storage" #storage="ngModel">
+        <label>Camera: </label>
+        <input class="form-control" placeholder="Camera" ngModel name="camera" #camera="ngModel">
+        <label>Weight: </label>
+        <input class="form-control" placeholder="Weight" ngModel name="weight" #weight="ngModel">
+        <label>Batery: </label>
+        <input class="form-control" placeholder="Dimensions" ngModel name="dimensions" #dimensions="ngModel">
+        <label>Batery: </label>
+        <input class="form-control" placeholder="Batery mAh" ngModel name="batery" #batery="ngModel">
+        <label>Operating system: </label>
+        <input class="form-control" placeholder="Operating system" ngModel name="os" #os="ngModel">
+      </div>
+      <div class="form-group">
+        <button class="btn" type="submit">Add</button>
+      </div>
+    </form>
+  </div>
+</div>

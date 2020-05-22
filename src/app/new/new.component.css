@@ -1,0 +1,13 @@
+label{
+  margin-top: 10px;
+}
+.alert-info p{
+  padding: 50px;
+}
+.alert-info {
+  text-align: center;
+}
+.btn {
+  background-color: #D10024;
+  color: white;
+}

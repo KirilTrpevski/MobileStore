@@ -1,0 +1,21 @@
+i{
+  margin: 0 10px 0 10px;
+}
+.facebook {
+  background-color: #3b5998;
+  color: white;
+}
+.google{
+  background-color: #DB4437;
+  color: white;
+}
+.col-md-4{
+  border: 1px solid #77767c;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  border-radius: 20px;
+}
+.sign {
+  background-color: #D10024;
+  color: white;
+}
