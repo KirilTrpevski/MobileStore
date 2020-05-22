@@ -1,0 +1,181 @@
+<!--<div class="row mt-4">-->
+<!--  <div class="col-md-2 mt-2 mr-4">-->
+
+
+<!--    </div>-->
+<!--  <div class="container">-->
+<!--    <div class="row justify-content-start">-->
+<!--      <div class="col-md-3 mt-2" >-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--  <div class="col-md-3 mt-5">-->
+
+<!--  </div>-->
+<!--  <div class="container w-75">-->
+<!--    <div class="row mt-4">-->
+<!--      <div class="col-lg-10 mt-4">-->
+<!--        <app-phone-item style="margin: 0 10px 0 0;" *ngFor="let filtered of filteredProducts"   [phone]="filtered"></app-phone-item>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--</div>-->
+
+<div class="row">
+  <div class="col-md-3 mt-4">
+    <div class="filter">
+      <h5>filter Brands</h5>
+      <div class="bybrand">
+        <div class="custom-control custom-checkbox">
+          <input class="custom-control-input" type="checkbox" (change)="onChange()" [(ngModel)]="brands.samsung" id="samsung" value="samsung">
+          <label class="custom-control-label" for="samsung">samsung</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input class="custom-control-input" (change)="onChange()" [(ngModel)]="brands.apple" type="checkbox" id="apple" value="iphone">
+          <label class="custom-control-label" for="apple">Apple</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input class="custom-control-input" (change)="onChange()"[(ngModel)]="brands.huawei" type="checkbox" id="huawei" value="huawei">
+          <label class="custom-control-label" for="huawei">huawei</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input class="custom-control-input" (change)="onChange()"[(ngModel)]="brands.sony" type="checkbox" id="sony" value="sony">
+          <label class="custom-control-label" for="sony">sony</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input class="custom-control-input" (change)="onChange()"[(ngModel)]="brands.lg" type="checkbox" id="lg" value="lg">
+          <label class="custom-control-label" for="lg">lg</label><br>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input class="custom-control-input" (change)="onChange()"[(ngModel)]="brands.alcatel" type="checkbox" id="alcatel" value="alcatel">
+          <label class="custom-control-label" for="alcatel">alcatel</label>
+        </div>
+      </div>
+      <!--        <div class="custom-control custom-checkbox" *ngFor="let brand of brands; let i = index">-->
+      <!--          <input type="checkbox" class="custom-control-input" [value]="brand" [id]="brand" (change)="onChange($event)">-->
+      <!--          <label class="custom-control-label" [for]="brand">{{brand}}</label>-->
+      <!--        </div>-->
+<!--      <h5>Price</h5>-->
+<!--      <div class="byprice">-->
+<!--        <span class="text-muted">ENTER FILTER PRICE</span><br>-->
+<!--        <mat-slider-->
+<!--          class="slider"-->
+<!--          [displayWith]="formatLabel"-->
+<!--          tickInterval="1000"-->
+<!--          min="1"-->
+<!--          max="2000"-->
+<!--          #slider1-->
+<!--          (change)="onChange()"-->
+<!--          [(ngModel)]="slider">-->
+<!--        </mat-slider><br>-->
+<!--        <span class="value">{{slider1.value | currency}}</span>-->
+<!--      </div>-->
+
+    </div>
+    <h5 class="mt-4">sorting order</h5>
+    <div class="byprice">
+      <select class="form-control rounded-0" (change)="sorting($event.target.value)">
+        <option value="nothing">Select a sorting order</option>
+        <option value="ascending">Sort by price &#x25B2;</option>
+        <option value="descending">Sort by price &#x25BC;</option>
+      </select>
+    </div>
+  </div>
+  <div class="container w-75">
+    <div class="row justify-content-start">
+      <div class="col-xl-3 col-lg-3 col-sm-4 mt-4 phones" *ngFor="let filtered of filteredProducts; let i = index">
+        <app-phone-item [phone]="filtered" [index] = "i"></app-phone-item>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pl-5 pb-5 pt-5 mt-5 footer justify-content-center">
+  <div class="col-xl-3 pl-5">
+    <h5>ABOUT US</h5>
+    <p>Some dummy text for out company similar to lorem ipsum but a little different</p>
+    <i class="fa fa-map-marker"></i><span> Rugjer Boshkovikj 16, Skopje</span><br>
+    <i class="fa fa-phone"></i><span> +389 78 555-555</span><br>
+    <i class="fa fa-envelope"></i><span> mobile@store.com</span>
+  </div>
+  <div class="col-xl-3 pl-5">
+    <h5>SERVICE</h5>
+    <nav  class="navbar pl-0">
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link">Shopping cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Wishlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Weekly deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">New!</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="col-xl-3 pl-5">
+    <h5>MENU</h5>
+    <nav class="navbar pl-0">
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item" [routerLinkActive]="'active'">
+            <a class="nav-link" routerLink="/home">Home</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="'active'">
+            <a class="nav-link" routerLink="/phones">Phones</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="'active'">
+            <a class="nav-link" routerLink="/hot-deals">Hot deals</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="'active'">
+            <a class="nav-link" routerLink="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="col-xl-3 pl-5">
+    <h5>BRANDS</h5>
+    <nav class="navbar pl-0">
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link">Apple</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Samsung</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Huawei</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">LG</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<div class="row copyright">
+  <div class="col-xl-12 text-center">
+    <div>
+      <i class="fa fa-cc-visa fa-3x"></i>
+      <i class="fa fa-cc-paypal fa-3x"></i>
+      <i class="fa fa-cc-amex fa-3x"></i>
+      <i class="fa fa-cc-mastercard fa-3x"></i>
+      <i class="fa fa-cc-discover fa-3x"></i>
+    </div>
+    <p class="small pt-4">Copyright ©2020 All rights reserved | Kiril and Marco</p>
+  </div>
+</div>
+<router-outlet></router-outlet>
