@@ -7,16 +7,18 @@ import { PhoneComponent } from './phone/phone.component';
 import {PhoneDetailsComponent} from './phone/phone-details/phone-details.component';
 import {NewComponent} from './new/new.component';
 import {PhoneResolverService} from './phone/phone-resolver.service';
+import {LoginComponent} from './login/login.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'new', component: NewComponent },
+  {path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent },
   { path: 'hot-deals', component: HotDealsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'phones', component: PhoneComponent},
-  {path: 'phones/:id', component: PhoneDetailsComponent, resolve: [PhoneResolverService]}
+  {path: 'phones/:name', component: PhoneDetailsComponent, resolve: [PhoneResolverService]}
 ];
 
 @NgModule({

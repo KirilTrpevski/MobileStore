@@ -4,6 +4,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSliderModule} from '@angular/material/slider';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {environment} from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +20,7 @@ import { PhoneDetailsComponent } from './phone/phone-details/phone-details.compo
 import { NewComponent } from './new/new.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {CommonModule} from '@angular/common';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -29,7 +33,8 @@ import {CommonModule} from '@angular/common';
     PhoneItemComponent,
     PhoneComponent,
     PhoneDetailsComponent,
-    NewComponent
+    NewComponent,
+    LoginComponent
   ],
     imports: [
         BrowserModule,
@@ -41,7 +46,10 @@ import {CommonModule} from '@angular/common';
         BrowserAnimationsModule,
         HttpClientModule,
         FontAwesomeModule,
-        CommonModule
+        CommonModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
+
     ],
   providers: [],
   bootstrap: [AppComponent]

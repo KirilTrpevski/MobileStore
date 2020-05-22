@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Phone} from '../shared/phone.model';
 import {map, tap} from 'rxjs/operators';
+import { AngularFireAuth} from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import {map, tap} from 'rxjs/operators';
 export class PhoneService {
 
   phones: Phone[] = [];
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private afsAuth: AngularFireAuth) {
   }
 
   onPost(phone: Phone) {
@@ -33,15 +34,27 @@ export class PhoneService {
       }));
   }
 
-  getPhone(id: number) {
-    return this.phones[id];
+  getPhone(name: string) {
+    for (let phone of this.phones) {
+      if(phone.name === name) {
+        return phone;
+      }
+    }
   }
 
   getPhones() {
     return this.phones.slice();
   }
 
-  setPhones(phone: Phone[]) {
-    this.phones = phone;
+
+  isAuth() {
+    return this.afsAuth.authState.pipe(map((authState) => {
+      if (!authState) {
+        return null;
+      } else {
+        console.log('Logged123');
+        return authState.email;
+      }
+    }));
   }
 }
