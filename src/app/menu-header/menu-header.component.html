@@ -47,7 +47,7 @@
   </div>
   <div class="col-md-2 col-xl-1 col-lg-2 col-sm-2 mt-3 clearfix text-center d-flex align-items-center" *ngIf="isLoggedIn">
     <div class="wishlist">
-      <a href="#">
+      <a style="cursor: pointer;" (click)="toWishList()" >
         <i class="fa fa-heart-o"></i>
         <span class="qty">2</span>
         <p class="small">Wishlist</p>
@@ -56,9 +56,9 @@
   </div>
   <div class="col-md-2 col-xl-1 col-lg-2 col-sm-2 mt-3 clearfix text-center d-flex align-items-center" *ngIf="isLoggedIn">
     <div class="shopping-cart">
-      <a href="#">
+      <a style="cursor: pointer;" (click)="toShoppingCart()">
         <i class="fa fa-shopping-cart"></i>
-        <span class="qty">3</span>
+        <span class="qty">{{phones.length}}</span>
         <p class="small">Shopping cart</p>
       </a>
     </div>

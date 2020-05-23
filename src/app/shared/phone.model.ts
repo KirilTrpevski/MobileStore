@@ -15,9 +15,10 @@ export class Phone {
   public dimesions: string;
   public weight: string;
   public batery: string;
+  public pieces: number;
 
   constructor(name, price, desc, image, brand, ram, processor, displaySize, displayResolution, gpu, storage, camera, os,
-              dimensions, weight, batery) {
+              dimensions, weight, batery, pieces) {
     this.name = name;
     this.price = price;
     this.desc = desc;
@@ -34,5 +35,6 @@ export class Phone {
     this.dimesions = dimensions;
     this.weight = weight;
     this.batery = batery;
+    this.pieces = pieces;
   }
 }

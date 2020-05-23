@@ -21,6 +21,9 @@ import { NewComponent } from './new/new.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {CommonModule} from '@angular/common';
 import { LoginComponent } from './login/login.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import {ShoppingCartService} from './shopping-cart/shopping-cart.service';
+import { WishListComponent } from './wish-list/wish-list.component';
 
 
 @NgModule({
@@ -34,7 +37,9 @@ import { LoginComponent } from './login/login.component';
     PhoneComponent,
     PhoneDetailsComponent,
     NewComponent,
-    LoginComponent
+    LoginComponent,
+    ShoppingCartComponent,
+    WishListComponent
   ],
     imports: [
         BrowserModule,
@@ -51,7 +56,7 @@ import { LoginComponent } from './login/login.component';
         AngularFireDatabaseModule,
 
     ],
-  providers: [],
+  providers: [ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,6 +8,8 @@ import {PhoneDetailsComponent} from './phone/phone-details/phone-details.compone
 import {NewComponent} from './new/new.component';
 import {PhoneResolverService} from './phone/phone-resolver.service';
 import {LoginComponent} from './login/login.component';
+import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
+import {WishListComponent} from './wish-list/wish-list.component';
 
 
 const routes: Routes = [
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'hot-deals', component: HotDealsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'phones', component: PhoneComponent},
+  {path: 'shopping-cart', component: ShoppingCartComponent},
+  {path: 'wish-list', component: WishListComponent},
   {path: 'phones/:name', component: PhoneDetailsComponent, resolve: [PhoneResolverService]}
 ];
 

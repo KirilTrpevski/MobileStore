@@ -27,4 +27,8 @@ export class PhoneDetailsComponent implements OnInit {
     // });
     // console.log(this.phone);
   }
+  addToCart(phone: Phone) {
+    this.phoneService.addedPhoneToCart(phone);
+  }
+
 }

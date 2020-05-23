@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Phone} from '../shared/phone.model';
 import {map, tap} from 'rxjs/operators';
 import { AngularFireAuth} from '@angular/fire/auth';
+import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { AngularFireAuth} from '@angular/fire/auth';
 export class PhoneService {
 
   phones: Phone[] = [];
-  constructor(private http: HttpClient, private afsAuth: AngularFireAuth) {
+  constructor(private http: HttpClient, private afsAuth: AngularFireAuth, private cartService: ShoppingCartService) {
   }
 
   onPost(phone: Phone) {
@@ -56,5 +57,9 @@ export class PhoneService {
         return authState.email;
       }
     }));
+  }
+
+  addedPhoneToCart(phone: Phone) {
+    this.cartService.addToCart(phone);
   }
 }
