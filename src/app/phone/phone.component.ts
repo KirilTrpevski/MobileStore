@@ -44,7 +44,7 @@ export class PhoneComponent implements OnInit {
 
     compareA(a: Phone, b: Phone) {
     let comparison = 0;
-    if (a.price > b.price) {
+    if (a.price < b.price) {
       comparison = 1;
     } else {
       comparison = -1;
@@ -54,7 +54,7 @@ export class PhoneComponent implements OnInit {
 
     compareD(a: Phone, b: Phone) {
       let comparison = 0;
-      if (a.price < b.price) {
+      if (a.price > b.price) {
         comparison = 1;
       } else {
         comparison = -1;

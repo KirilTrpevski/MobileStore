@@ -4,6 +4,7 @@ import {Phone} from '../shared/phone.model';
 import {map, tap} from 'rxjs/operators';
 import { AngularFireAuth} from '@angular/fire/auth';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
+import {WishListService} from '../wish-list/wish-list.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,10 @@ import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 export class PhoneService {
 
   phones: Phone[] = [];
-  constructor(private http: HttpClient, private afsAuth: AngularFireAuth, private cartService: ShoppingCartService) {
+  samsungList: Phone[] = [];
+
+  constructor(private http: HttpClient, private afsAuth: AngularFireAuth, private cartService: ShoppingCartService,
+              private wishListService: WishListService) {
   }
 
   onPost(phone: Phone) {
@@ -62,4 +66,19 @@ export class PhoneService {
   addedPhoneToCart(phone: Phone) {
     this.cartService.addToCart(phone);
   }
+
+  addedPhoneToWishList(phone: Phone) {
+    this.wishListService.addToWishList(phone);
+    console.log("test");
+  }
+
+  getSamsung() {
+    for (let phone of this.phones) {
+      if (phone.brand.toLowerCase() === 'samsung') {
+        this.samsungList.push(phone);
+      }
+    }
+    return this.samsungList;
+  }
+
 }

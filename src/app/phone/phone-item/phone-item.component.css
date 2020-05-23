@@ -1,3 +1,8 @@
+img{
+  max-width: 350px;
+  min-height: 250px;
+  max-height: 250px;
+}
 .card:hover{
   border: 1px solid #D10024;
   transition: 0.2s;

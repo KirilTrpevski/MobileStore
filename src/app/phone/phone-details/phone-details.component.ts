@@ -31,4 +31,8 @@ export class PhoneDetailsComponent implements OnInit {
     this.phoneService.addedPhoneToCart(phone);
   }
 
+  addToWishList(phone: Phone) {
+    this.phoneService.addedPhoneToWishList(phone);
+  }
+
 }

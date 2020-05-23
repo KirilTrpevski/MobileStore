@@ -9,7 +9,7 @@
 
         <strong>{{phone.price | currency}}</strong><br>
       <button class="btn add-to-card" (click)="addToCart(phone)">Add to card <i class="fa fa-shopping-cart"></i></button>
-      <button class="btn add-to-wishlist">Add to wishlist <i class="fa fa-heart-o"></i></button>
+      <button class="btn add-to-wishlist" (click)="addToWishList(phone)">Add to wishlist <i class="fa fa-heart-o"></i></button>
     </div>
     <div class="text-left mt-5 icons">
       <p><i class="fa fa-microchip fa-2x"> </i> <span>{{phone.processor}}</span></p>
@@ -116,16 +116,16 @@
       <div>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link">Shopping cart</a>
+            <a class="nav-link" href="https://www.apple.com/">Apple</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Wishlist</a>
+            <a class="nav-link" href="https://www.samsung.com/us/">Samsung</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Weekly deals</a>
+            <a class="nav-link" href="https://consumer.huawei.com/mk/">Huawei</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">New!</a>
+            <a class="nav-link" href="https://www.lg.com/us">LG</a>
           </li>
         </ul>
       </div>

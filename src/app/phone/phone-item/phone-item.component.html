@@ -1,5 +1,7 @@
 <div class="card rounded-0" style="width: 13rem;">
-  <a style="cursor: pointer;" [routerLink]="phone.name"><img class="card-img-top" [src] = phone.image alt="Card image cap" /></a>
+  <a style="cursor: pointer;" [routerLink]="phone.name">
+    <img class="card-img-top" [src] = phone.image
+         [alt]=phone.name /></a>
   <div class="card-body">
     <h6 class="text-muted text-center">{{phone.name}}</h6>
     <p class="card-text text-center">

@@ -24,6 +24,7 @@ import { LoginComponent } from './login/login.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import {ShoppingCartService} from './shopping-cart/shopping-cart.service';
 import { WishListComponent } from './wish-list/wish-list.component';
+import {WishListService} from './wish-list/wish-list.service';
 
 
 @NgModule({
@@ -56,7 +57,7 @@ import { WishListComponent } from './wish-list/wish-list.component';
         AngularFireDatabaseModule,
 
     ],
-  providers: [ShoppingCartService],
+  providers: [ShoppingCartService, WishListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

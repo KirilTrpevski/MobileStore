@@ -159,7 +159,7 @@
     </div>
   </div>
 </div>
-<div class="row justify-content-center text-center hotdeals mb-5 pb-5 pt-5">
+<div class="row justify-content-center text-center hotdeals mb-5 pb-5 pt-5" #weekly>
   <div class="col-sm-3">
     <img src="../../images/a51.png" class="img-fluid">
   </div>
@@ -453,7 +453,7 @@
             <a class="nav-link">Wishlist</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Weekly deals</a>
+            <a class="nav-link" (click)="scrol(weekly)">Weekly deals</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" (click)="scrol(new)">New!</a>
@@ -489,16 +489,16 @@
       <div>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link">Apple</a>
+            <a class="nav-link" href="https://www.apple.com/">Apple</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Samsung</a>
+            <a class="nav-link" href="https://www.samsung.com/us/">Samsung</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Huawei</a>
+            <a class="nav-link" href="https://consumer.huawei.com/mk/">Huawei</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">LG</a>
+            <a class="nav-link" href="https://www.lg.com/us">LG</a>
           </li>
         </ul>
       </div>
