@@ -51,8 +51,9 @@ export class ShoppingCartComponent implements OnInit {
       let sum = 0;
       for (let i = 0; i < el.length; i++) {
         // console.log(el.item(i).innerText.slice(1, el.item(i).innerText.length));
-        sum += +el.item(i).innerText.slice(1, el.item(i).innerText.length)
-      }
+        sum += +el.item(i).innerText.slice(1, el.item(i).innerText.length).replace(',', '');
+        console.log("input Field" + el.item(i).innerText.slice(1, el.item(i).innerText.length).replace(',', ''));
+    }
       console.log(sum.toFixed(2));
       this.finalPrice = +sum.toFixed(2);
       return sum.toFixed(2);

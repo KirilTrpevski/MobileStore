@@ -19,6 +19,8 @@ export class NewComponent implements OnInit {
 
   onSubmit() {
     this.phoneService.onPost(this.form.value);
+    alert('The item has been added to the page');
+    this.form.reset();
     // console.log(this.form.value);
   }
 }

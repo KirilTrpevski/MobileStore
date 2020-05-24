@@ -14,7 +14,7 @@ import {WishListComponent} from './wish-list/wish-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'new', component: NewComponent },
+  { path: 'mobile-admin', component: NewComponent },
   {path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent },
   { path: 'hot-deals', component: HotDealsComponent },
