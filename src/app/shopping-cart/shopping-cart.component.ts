@@ -43,16 +43,13 @@ export class ShoppingCartComponent implements OnInit {
       });
   }
 
-
-
   total() {
     setTimeout(() => {
       const el = document.getElementsByName('cena');
       let sum = 0;
       for (let i = 0; i < el.length; i++) {
-        // console.log(el.item(i).innerText.slice(1, el.item(i).innerText.length));
-        sum += +el.item(i).innerText.slice(1, el.item(i).innerText.length).replace(',', '');
-        console.log("input Field" + el.item(i).innerText.slice(1, el.item(i).innerText.length).replace(',', ''));
+        sum += +Number(el.item(i).innerText.replace(/[^0-9.-]+/g,""));
+        console.log("input Field" + el.item(i).innerText.replace(/[^0-9.-]+/g,""));
     }
       console.log(sum.toFixed(2));
       this.finalPrice = +sum.toFixed(2);

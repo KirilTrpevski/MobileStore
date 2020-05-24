@@ -11,5 +11,4 @@ export class PhoneItemComponent {
   @Input() phone: Phone;
   @Input() index: number;
 
-
 }
