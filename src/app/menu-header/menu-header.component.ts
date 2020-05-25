@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 import {Phone} from '../shared/phone.model';
 import {WishListService} from '../wish-list/wish-list.service';
+import {Subscription} from 'rxjs';
+import {AuthService} from '../login/auth/auth.service';
 
 
 @Component({
@@ -16,9 +18,12 @@ export class MenuHeaderComponent implements OnInit {
   isLoggedIn = false;
   phones: Phone[] = [];
   phonesList: Phone[] = [];
+  adminSub: Subscription;
+  isAuthenticated = false;
 
   constructor(private phoneService: PhoneService, private afsAuth: AngularFireAuth, private router: Router,
-              private cartService: ShoppingCartService, private wishListService: WishListService) { }
+              private cartService: ShoppingCartService, private wishListService: WishListService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.getCurrentUser();
@@ -29,6 +34,11 @@ export class MenuHeaderComponent implements OnInit {
     this.cartService.phonesChanged
       .subscribe(phones => {
         this.phones = phones;
+      });
+
+    this.adminSub = this.authService.admin
+      .subscribe((user) => {
+        this.isAuthenticated = user ? true : false; // !!user
       });
   }
   getCurrentUser() {
@@ -46,6 +56,11 @@ export class MenuHeaderComponent implements OnInit {
 
   onLogOut() {
     this.afsAuth.signOut();
+  }
+
+  adminLogOut() {
+    this.authService.logout();
+    this.router.navigate(['/home']);
   }
 
   toShoppingCart() {

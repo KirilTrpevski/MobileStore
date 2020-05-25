@@ -19,9 +19,8 @@ export class PhoneComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.filteredProducts = this.phones;
     this.phoneService.onFetchPhones()
-        .subscribe((phones) => {
+        .subscribe((phones: Phone[]) => {
           this.phones = phones;
           this.filteredProducts = phones;
         });
@@ -42,39 +41,15 @@ export class PhoneComponent implements OnInit {
     }
     }
 
-    compareA(a: Phone, b: Phone) {
-    let comparison = 0;
-    if (a.price < b.price) {
-      comparison = 1;
-    } else {
-      comparison = -1;
-    }
-    return comparison;
-    }
-
-    compareD(a: Phone, b: Phone) {
-      let comparison = 0;
-      if (a.price > b.price) {
-        comparison = 1;
-      } else {
-        comparison = -1;
-      }
-      return comparison;
-    }
-    sortBypriceAscending() {
-      this.filteredProducts.sort(this.compareA);
-    }
-
-    sortByPriceDescending() {
-    this.filteredProducts.sort(this.compareD);
-    }
   sorting(value: string) {
     switch (value) {
       case 'ascending':
-        this.sortBypriceAscending();
+        this.filteredProducts.sort((a: Phone, b: Phone) =>
+        a.price - b.price);
         break;
       case 'descending':
-        this.sortByPriceDescending();
+        this.filteredProducts.sort((a, b) =>
+            b.price - a.price);
         break;
     }
   }

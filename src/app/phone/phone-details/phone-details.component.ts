@@ -12,10 +12,11 @@ export class PhoneDetailsComponent implements OnInit {
   phone: Phone;
   name: string;
   id: number;
-
+  isLoggedIn = false;
   constructor(private route: ActivatedRoute, private phoneService: PhoneService) { }
 
   ngOnInit(): void {
+    this.getCurrentUser();
     this.id = +this.route.snapshot.params['id'];
     this.name = this.route.snapshot.params['name'];
     console.log(this.name);
@@ -33,6 +34,19 @@ export class PhoneDetailsComponent implements OnInit {
 
   addToWishList(phone: Phone) {
     this.phoneService.addedPhoneToWishList(phone);
+  }
+
+  getCurrentUser() {
+    this.phoneService.isAuth()
+      .subscribe(auth => {
+        if (auth) {
+          // console.log('User Loged');
+          this.isLoggedIn = true;
+        } else {
+          // console.log('User not logged');
+          this.isLoggedIn = false;
+        }
+      });
   }
 
 }

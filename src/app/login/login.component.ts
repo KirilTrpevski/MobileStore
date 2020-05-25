@@ -3,6 +3,8 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
 import {auth} from 'firebase';
 import {Observable} from 'rxjs';
+import {AuthService} from './auth/auth.service';
+import {emailVerified} from '@angular/fire/auth-guard';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +12,16 @@ import {Observable} from 'rxjs';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  user: Observable<any>;
   email: string;
+  user: Observable<any>;
+  errorMsg: string;
   emailSent = false;
 
-  errorMsg: string;
-
-  constructor(public afAuth: AngularFireAuth, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,
+              private afsAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
-    this.user = this.afAuth.authState;
+    this.user = this.afsAuth.authState;
 
     const url = this.router.url;
 
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
     };
 
     try {
-      await this.afAuth.sendSignInLinkToEmail(email, actionCodeSettings);
+      await this.afsAuth.sendSignInLinkToEmail(email, actionCodeSettings);
       window.localStorage.setItem('emailForSignIn', email);
       console.log(window.localStorage);
       this.emailSent = true;
@@ -46,13 +47,13 @@ export class LoginComponent implements OnInit {
   }
   async confirmSignIn(url) {
     try {
-      if (this.afAuth.isSignInWithEmailLink(url)) {
+      if (this.afsAuth.isSignInWithEmailLink(url)) {
         let email = window.localStorage.getItem('emailForSignIn');
         if (!email) {
           // email = window.prompt('Please provide your email for confirmation');
         }
 
-        const result = await this.afAuth.signInWithEmailLink(email, url);
+        const result = await this.afsAuth.signInWithEmailLink(email, url);
         if (result) {
           window.localStorage.removeItem('emailForSignIn');
         } else {
@@ -65,14 +66,11 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onLoginWithFacebook() {
-    // console.log('facebb');
-    this.afAuth.signInWithPopup(new auth.FacebookAuthProvider());
+  loginWithFacebook() {
+    this.authService.onLoginWithFacebook();
   }
 
-  onGoogleLogin() {
-    // console.log('google');
-    this.afAuth.signInWithPopup(new auth.GoogleAuthProvider());
+  loginWithGoogle() {
+    this.authService.onGoogleLogin();
   }
-
 }

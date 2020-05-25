@@ -11,10 +11,14 @@ import {LoginComponent} from './login/login.component';
 import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
 import {WishListComponent} from './wish-list/wish-list.component';
 
+import {AuthGuard} from './login/auth/auth.guard';
+import {AuthComponent} from './login/auth/auth.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'mobile-admin', component: NewComponent },
+  { path: 'mobile-admin', component: AuthComponent },
+  {path: 'new', component: NewComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent },
   { path: 'hot-deals', component: HotDealsComponent },

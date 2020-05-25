@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Phone} from '../shared/phone.model';
-import {map, tap} from 'rxjs/operators';
+import {exhaustMap, map, take, tap} from 'rxjs/operators';
 import { AngularFireAuth} from '@angular/fire/auth';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 import {WishListService} from '../wish-list/wish-list.service';
+import {AuthService} from '../login/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,14 +17,16 @@ export class PhoneService {
   samsungList: Phone[] = [];
 
   constructor(private http: HttpClient, private afsAuth: AngularFireAuth, private cartService: ShoppingCartService,
-              private wishListService: WishListService) {
+              private wishListService: WishListService, private authService: AuthService) {
   }
 
   onPost(phone: Phone) {
-    this.http.post('https://mobilestore-2df05.firebaseio.com/phones.json', phone)
-      .subscribe((item: Phone) => {
-        console.log(item);
-      });
+    return this.authService.admin.pipe(take(1), exhaustMap(admin => {
+      return this.http.post('https://mobilestore-2df05.firebaseio.com/phones.json', phone,
+        {
+          params: new HttpParams().set('auth', admin.token)
+        });
+    }));
   }
 
   onFetchPhones() {

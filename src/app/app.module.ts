@@ -25,6 +25,9 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import {ShoppingCartService} from './shopping-cart/shopping-cart.service';
 import { WishListComponent } from './wish-list/wish-list.component';
 import {WishListService} from './wish-list/wish-list.service';
+import {AuthComponent} from './login/auth/auth.component';
+import {ShortenPipe} from './shared/shorten.pipe';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import {WishListService} from './wish-list/wish-list.service';
     NewComponent,
     LoginComponent,
     ShoppingCartComponent,
-    WishListComponent
+    WishListComponent,
+    AuthComponent,
+    ShortenPipe,
+    SpinnerComponent
   ],
     imports: [
         BrowserModule,
