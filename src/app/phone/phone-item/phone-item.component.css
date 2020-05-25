@@ -4,9 +4,12 @@ img{
   max-height: 250px;
 }
 .card:hover{
-  border: 1px solid #D10024;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
   transition: 0.2s;
 }
+
 .fa-heart-o{
   background-color: transparent;
   width: 40px;

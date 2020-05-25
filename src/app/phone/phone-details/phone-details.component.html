@@ -2,14 +2,14 @@
   <div class="col-md-5">
     <h2 class="text-center">{{phone.name}}</h2>
     <div class="text-center">
-      <img class="text-center" src="{{phone.image}}">
+      <img class="text-center img-phone" src="{{phone.image}}">
     </div>
-
     <div class="text-center afterImg">
-
         <strong>{{phone.price | currency}}</strong><br>
       <button class="btn add-to-card" [disabled]="!isLoggedIn" (click)="addToCart(phone)">Add to cart <i class="fa fa-shopping-cart"></i></button>
       <button class="btn add-to-wishlist" [disabled]="!isLoggedIn" (click)="addToWishList(phone)">Add to wishlist <i class="fa fa-heart-o"></i></button>
+      <p class="text-muted mt-3 mb-0 pb-0">In order to shop you have to login
+        <a style="color: #D10024" routerLink="/login">here</a></p>
     </div>
     <div class="text-left mt-5 icons">
       <p><i class="fa fa-microchip fa-2x"> </i> <span>{{phone.processor}}</span></p>

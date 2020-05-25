@@ -73,3 +73,11 @@ a {
 .btn-link{
   text-decoration: none;
 }
+
+.img-phone:hover {
+  cursor: zoom-in;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  transition: 0.5s;
+}

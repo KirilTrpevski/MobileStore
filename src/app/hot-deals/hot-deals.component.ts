@@ -13,10 +13,7 @@ export class HotDealsComponent implements OnInit {
   constructor(private phoneService: PhoneService) { }
 
   ngOnInit() {
-    setTimeout( () => {
-      this.samsungList1 = this.phoneService.getSamsung();
-      console.log(this.samsungList1.slice(0, 4));
-    }, 500);
+    this.samsungList1 = this.phoneService.getSamsung();
   }
 
 }
