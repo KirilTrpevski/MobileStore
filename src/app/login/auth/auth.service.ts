@@ -85,6 +85,7 @@ export class AuthService {
     console.log(expirationDuration);
     this.tokenExpTimer = setTimeout(() => {
       this.logout();
+      this.router.navigate(['/mobile-admin']);
     }, expirationDuration);
   }
 
