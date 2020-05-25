@@ -12,10 +12,10 @@
         <a style="color: #D10024" routerLink="/login">here</a></p>
     </div>
     <div class="text-left mt-5 icons">
-      <p><i class="fa fa-microchip fa-2x"> </i> <span>{{phone.processor}}</span></p>
-      <p><i class="fa fa-mobile fa-2x"></i> <span>{{phone.displaySize}}</span></p>
-      <p> <i class="fa fa-camera fa-2x"></i> <span>{{phone.camera}}</span></p>
-      <p> <i class="fa fa-database fa-2x"></i> <span>{{phone.storage}} of storage</span></p>
+      <p><i class="fa fa-microchip fa-2x"> </i> {{phone.processor | shorten}}</p>
+      <p><i class="fa fa-mobile fa-2x"></i> {{phone.displaySize}}</p>
+      <p> <i class="fa fa-camera fa-2x"></i> {{phone.camera | shorten}}</p>
+      <p> <i class="fa fa-database fa-2x"></i> {{phone.storage}} of storage</p>
     </div>
 
   </div>

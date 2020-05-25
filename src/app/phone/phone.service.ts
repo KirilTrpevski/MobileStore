@@ -60,7 +60,6 @@ export class PhoneService {
       if (!authState) {
         return null;
       } else {
-        console.log('Logged123');
         return authState.email;
       }
     }));
@@ -72,16 +71,5 @@ export class PhoneService {
 
   addedPhoneToWishList(phone: Phone) {
     this.wishListService.addToWishList(phone);
-    console.log("test");
   }
-
-  getSamsung() {
-    for (let phone of this.phones) {
-      if (phone.brand.toLowerCase() === 'samsung') {
-        this.samsungList.push(phone);
-      }
-    }
-    return this.samsungList;
-  }
-
 }
