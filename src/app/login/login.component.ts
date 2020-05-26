@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
 
     this.confirmSignIn(url);
 
-    console.log(url);
   }
 
   async sendEmailLink(email: string) {
@@ -48,10 +47,7 @@ export class LoginComponent implements OnInit {
   async confirmSignIn(url) {
     try {
       if (this.afsAuth.isSignInWithEmailLink(url)) {
-        let email = window.localStorage.getItem('emailForSignIn');
-        if (!email) {
-          // email = window.prompt('Please provide your email for confirmation');
-        }
+        const email = window.localStorage.getItem('emailForSignIn');
 
         const result = await this.afsAuth.signInWithEmailLink(email, url);
         if (result) {

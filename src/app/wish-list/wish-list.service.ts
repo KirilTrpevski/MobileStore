@@ -16,4 +16,9 @@ export class WishListService {
   getWishListPhones() {
     return this.phones;
   }
+
+  deleteFromWislist(id: number) {
+    this.phones.splice(id, 1);
+    this.phonesChanged.next(this.phones);
+  }
 }

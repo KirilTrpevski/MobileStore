@@ -11,45 +11,45 @@
     <form #form="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label>Name:</label>
-        <input class="form-control" placeholder="Name" ngModel name="name" #name="ngModel">
+        <input class="form-control" placeholder="Name" ngModel name="name" #name="ngModel" required>
         <label>Price: </label>
-        <input class="form-control" placeholder="Price" ngModel name="price" #price="ngModel">
+        <input class="form-control" placeholder="Price" ngModel name="price" #price="ngModel" required>
         <label>Pieces: </label>
-        <input class="form-control" placeholder="pieces" ngModel name="pieces" #pieces="ngModel">
+        <input class="form-control" placeholder="pieces" ngModel name="pieces" #pieces="ngModel" required>
         <label>Image: </label>
-        <input class="form-control" placeholder="Image URL" ngModel name="image" #image="ngModel">
+        <input class="form-control" placeholder="Image URL" ngModel name="image" #image="ngModel" required>
         <label>Brand: </label>
-        <input class="form-control" placeholder="Brand" ngModel name="brand" #brand="ngModel">
+        <input class="form-control" placeholder="Brand" ngModel name="brand" #brand="ngModel" required>
         <label>Description: </label>
-        <textarea rows="4" class="form-control" placeholder="Description..." ngModel name="desc" #desc="ngModel"></textarea>
+        <textarea rows="4" class="form-control" placeholder="Description..." ngModel name="desc" #desc="ngModel" required></textarea>
       </div>
       <div class="form-group">
         <h3>Specifications</h3>
         <label>Ram: </label>
-        <input class="form-control" placeholder="Ram" ngModel name="ram" #ram="ngModel">
+        <input class="form-control" placeholder="Ram" ngModel name="ram" #ram="ngModel" required>
         <label>CPU: </label>
-        <input class="form-control" placeholder="Processor" ngModel name="processor" #cpu="ngModel">
+        <input class="form-control" placeholder="Processor" ngModel name="processor" #cpu="ngModel" required>
         <label>GPU: </label>
-        <input class="form-control" placeholder="Graphic card" ngModel name="gpu" #gpu="ngModel">
+        <input class="form-control" placeholder="Graphic card" ngModel name="gpu" #gpu="ngModel" required>
         <label>Display size: </label>
-        <input class="form-control" placeholder="Display size" ngModel name="displaySize" #displaySize="ngModel">
+        <input class="form-control" placeholder="Display size" ngModel name="displaySize" #displaySize="ngModel" required>
         <label>Display resolution: </label>
-        <input class="form-control" placeholder="Display resolution" ngModel name="displayResolution" #displayResolution="ngModel">
+        <input class="form-control" placeholder="Display resolution" ngModel name="displayResolution" #displayResolution="ngModel" required>
         <label>Storage: </label>
-        <input class="form-control" placeholder="Storage" ngModel name="storage" #storage="ngModel">
+        <input class="form-control" placeholder="Storage" ngModel name="storage" #storage="ngModel" required>
         <label>Camera: </label>
-        <input class="form-control" placeholder="Camera" ngModel name="camera" #camera="ngModel">
+        <input class="form-control" placeholder="Camera" ngModel name="camera" #camera="ngModel" required>
         <label>Weight: </label>
-        <input class="form-control" placeholder="Weight" ngModel name="weight" #weight="ngModel">
+        <input class="form-control" placeholder="Weight" ngModel name="weight" #weight="ngModel" required>
         <label>Dimensions: </label>
-        <input class="form-control" placeholder="Dimensions" ngModel name="dimensions" #dimensions="ngModel">
+        <input class="form-control" placeholder="Dimensions" ngModel name="dimensions" #dimensions="ngModel" required>
         <label>Batery: </label>
-        <input class="form-control" placeholder="Batery mAh" ngModel name="batery" #batery="ngModel">
+        <input class="form-control" placeholder="Batery mAh" ngModel name="batery" #batery="ngModel" required>
         <label>Operating system: </label>
-        <input class="form-control" placeholder="Operating system" ngModel name="os" #os="ngModel">
+        <input class="form-control" placeholder="Operating system" ngModel name="os" #os="ngModel" required>
       </div>
       <div class="form-group">
-        <button class="btn" type="submit">Add</button>
+        <button [disabled]="!form.valid" class="btn" type="submit">Add</button>
       </div>
     </form>
   </div>

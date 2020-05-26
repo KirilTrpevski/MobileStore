@@ -72,3 +72,16 @@ a {
   transition: 0.3s ease-in-out;
   color: #D10024;
 }
+
+.badge {
+  position: absolute;
+  transform: rotate(-45deg);
+  top: 5%;
+}
+.card-body span {
+  color: #D10024;
+}
+
+.card {
+  cursor: pointer;
+}

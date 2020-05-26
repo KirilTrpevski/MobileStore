@@ -17,7 +17,7 @@ export class PhoneDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCurrentUser();
-    this.id = +this.route.snapshot.params['id'];
+    // this.id = +this.route.snapshot.params['id'];
     this.name = this.route.snapshot.params['name'];
     console.log(this.name);
     this.phone = this.phoneService.getPhone(this.name);

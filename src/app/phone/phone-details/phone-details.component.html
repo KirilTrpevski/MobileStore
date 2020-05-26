@@ -6,8 +6,11 @@
     </div>
     <div class="text-center afterImg">
         <strong>{{phone.price | currency}}</strong><br>
-      <button class="btn add-to-card" [disabled]="!isLoggedIn" (click)="addToCart(phone)">Add to cart <i class="fa fa-shopping-cart"></i></button>
-      <button class="btn add-to-wishlist" [disabled]="!isLoggedIn" (click)="addToWishList(phone)">Add to wishlist <i class="fa fa-heart-o"></i></button>
+      <div *ngIf="isLoggedIn">
+        <button class="btn add-to-card" [disabled]="!isLoggedIn" (click)="addToCart(phone)">Add to cart <i class="fa fa-shopping-cart"></i></button>
+        <button class="btn add-to-wishlist" [disabled]="!isLoggedIn" (click)="addToWishList(phone)">Add to wishlist <i class="fa fa-heart-o"></i></button>
+      </div>
+
       <p class="text-muted mt-3 mb-0 pb-0">In order to shop you have to login
         <a style="color: #D10024" routerLink="/login">here</a></p>
     </div>

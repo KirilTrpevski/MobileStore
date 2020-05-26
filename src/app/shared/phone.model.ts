@@ -37,4 +37,5 @@ export class Phone {
     this.batery = batery;
     this.pieces = pieces;
   }
+
 }

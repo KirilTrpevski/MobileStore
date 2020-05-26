@@ -11,6 +11,7 @@ export class HotDealsComponent implements OnInit {
 
   samsungList1: Phone[] = [];
   phones: Phone[] = [];
+  isLoggedIn = false;
   constructor(private phoneService: PhoneService) { }
 
   ngOnInit() {
@@ -23,5 +24,36 @@ export class HotDealsComponent implements OnInit {
           }
         }
       });
+    this.getCurrentUser();
   }
+
+  getCurrentUser() {
+    this.phoneService.isAuth()
+      .subscribe(auth => {
+        if (auth) {
+          // console.log('User Loged');
+          this.isLoggedIn = true;
+        } else {
+          // console.log('User not logged');
+          this.isLoggedIn = false;
+        }
+      });
+  }
+
+  onAddToCart(phone: Phone) {
+    const newPrice = phone.price - (phone.price * 0.15);
+    phone = new Phone(phone.name, newPrice, phone.desc, phone.image, phone.brand, phone.ram, phone.processor,
+      phone.displaySize, phone.displayResolution, phone.gpu, phone.storage, phone.camera, phone.os, phone.dimesions,
+      phone.weight, phone.batery, phone.pieces);
+    this.phoneService.addedPhoneToCart(phone);
+  }
+
+  onAddToWishList(phone: Phone) {
+    const newPrice = phone.price - (phone.price * 0.15);
+    phone = new Phone(phone.name, newPrice, phone.desc, phone.image, phone.brand, phone.ram, phone.processor,
+      phone.displaySize, phone.displayResolution, phone.gpu, phone.storage, phone.camera, phone.os, phone.dimesions,
+      phone.weight, phone.batery, phone.pieces);
+    this.phoneService.addedPhoneToWishList(phone);
+  }
+
 }

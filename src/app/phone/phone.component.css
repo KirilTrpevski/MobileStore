@@ -108,9 +108,9 @@ a {
   color: #77767c;
 }
 
-@media only screen and (max-width: 991px) {
-  .phones {
-    margin-left: 50%;
-    display: block;
-  }
-}
+/*@media only screen and (max-width: 991px) {*/
+/*  .phones {*/
+/*    margin-left: 50%;*/
+/*    display: block;*/
+/*  }*/
+/*}*/

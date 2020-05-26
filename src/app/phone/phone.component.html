@@ -36,25 +36,6 @@
           <label class="custom-control-label" for="alcatel">alcatel</label>
         </div>
       </div>
-      <!--        <div class="custom-control custom-checkbox" *ngFor="let brand of brands; let i = index">-->
-      <!--          <input type="checkbox" class="custom-control-input" [value]="brand" [id]="brand" (change)="onChange($event)">-->
-      <!--          <label class="custom-control-label" [for]="brand">{{brand}}</label>-->
-      <!--        </div>-->
-<!--      <h5>Price</h5>-->
-<!--      <div class="byprice">-->
-<!--        <span class="text-muted">ENTER FILTER PRICE</span><br>-->
-<!--        <mat-slider-->
-<!--          class="slider"-->
-<!--          [displayWith]="formatLabel"-->
-<!--          tickInterval="1000"-->
-<!--          min="1"-->
-<!--          max="2000"-->
-<!--          #slider1-->
-<!--          (change)="onChange()"-->
-<!--          [(ngModel)]="slider">-->
-<!--        </mat-slider><br>-->
-<!--        <span class="value">{{slider1.value | currency}}</span>-->
-<!--      </div>-->
 
     </div>
     <h5 class="mt-4">sorting order</h5>
@@ -72,8 +53,8 @@
         <app-spinner></app-spinner>
       </div>
     </div>
-    <div class="row justify-content-start">
-      <div class="col-xl-3 col-lg-3 col-sm-4 mt-4 phones" *ngFor="let filtered of filteredProducts; let i = index">
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mt-4 phones justify-content-md-end" *ngFor="let filtered of filteredProducts; let i = index">
         <app-phone-item [phone]="filtered" [index] = "i"></app-phone-item>
       </div>
     </div>

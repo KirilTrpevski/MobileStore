@@ -37,13 +37,13 @@
             <li class="nav-item" [routerLinkActive]="'active'" *ngIf="!isAuthenticated">
               <a class="nav-link" routerLink="/contact">Contact</a>
             </li>
-            <li class="nav-item" [routerLinkActive]="'active'" *ngIf="!isLoggedIn">
+            <li class="nav-item" [routerLinkActive]="'active'" *ngIf="!isLoggedIn && !isAuthenticated">
               <a class="nav-link" routerLink="/login">Login</a>
             </li>
             <li class="nav-item" *ngIf="isAuthenticated" style="cursor: pointer;">
               <a class="nav-link" (click)="adminLogOut()">Logout</a>
             </li>
-            <li class="nav-item" *ngIf="isLoggedIn" style="cursor: pointer;">
+            <li class="nav-item" *ngIf="isLoggedIn && !isAuthenticated" style="cursor: pointer;">
               <a class="nav-link" (click)="onLogOut()">Logout</a>
             </li>
           </ul>
@@ -51,7 +51,7 @@
       </nav>
     </div>
   </div>
-  <div class="col-md-2 col-xl-1 col-lg-2 col-sm-2 mt-3 clearfix text-center d-flex align-items-center" *ngIf="isLoggedIn">
+  <div class="col-md-2 col-xl-1 col-lg-2 col-sm-2 mt-3 clearfix text-center d-flex align-items-center justify-content-center" *ngIf="isLoggedIn">
     <div class="wishlist">
       <a style="cursor: pointer;" (click)="toWishList()" >
         <i class="fa fa-heart-o"></i>
@@ -60,7 +60,7 @@
       </a>
     </div>
   </div>
-  <div class="col-md-2 col-xl-1 col-lg-2 col-sm-2 mt-3 clearfix text-center d-flex align-items-center" *ngIf="isLoggedIn">
+  <div class="col-md-2 col-xl-1 col-lg-2 col-sm-2 mt-3 clearfix text-center d-flex align-items-center justify-content-center" *ngIf="isLoggedIn">
     <div class="shopping-cart">
       <a style="cursor: pointer;" (click)="toShoppingCart()">
         <i class="fa fa-shopping-cart"></i>
