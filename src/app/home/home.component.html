@@ -1,36 +1,12 @@
 <div class="row mt-2 mb-2">
-  <div class="col-md-4 col-xs-6">
+  <div class="col-md-4 col-xs-6" *ngFor="let phone of firstPhones">
     <div class="shop">
       <div class="shop-img">
-        <img src="../../images/a51.png" alt="">
+        <img [src] = phone.image [alt] = phone.name>
       </div>
       <div class="shop-body">
-        <h3>Smsung A51</h3>
-        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4 col-xs-6">
-    <div class="shop">
-      <div class="shop-img">
-        <img src="../../images/samsungs20.png" alt="">
-      </div>
-      <div class="shop-body">
-        <h3>Samsung S20 ultra</h3>
-        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4 col-xs-6">
-    <div class="shop">
-      <div class="shop-img">
-        <img src="../../images/product07.png" alt="">
-      </div>
-      <div class="shop-body">
-        <h3>Samsung S10</h3>
-        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+        <h3>{{phone.name}}</h3>
+        <a [routerLink]="['/phones/' + phone.name]" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
   </div>
@@ -41,122 +17,48 @@
   </div>
 </div>
 
-<div class="row justify-content-center">
-  <div class="col-xl-3 col-lg-4 col-md-6">
+<div class="row justify-content-center" *ngIf="phoneList.length === 0">
+  <app-spinner></app-spinner>
+</div>
+
+
+
+<div class="row justify-content-center" *ngIf="phoneList.length != 0">
+  <div class="col-xl-3 col-lg-4 col-md-6 mt-5" *ngFor="let phone of phoneList">
     <div class="card rounded-0" style="width: 18rem;">
-      <img class="card-img-top" src="../../images//a51.png" alt="Card image cap">
+      <img class="card-img-top" [src] = phone.image [alt] = phone.name [routerLink]="['/phones/' + phone.name]">
       <div class="card-body">
-        <h6 class="text-muted text-center">Phone name</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+        <h6 class="text-muted text-center">{{phone.name}}</h6>
+        <p class="card-text text-center">{{phone.desc | shortendesc}}
           <div class="text-center">
             <div class="container">
-              <div class="row justify-content-center">
+              <div class="row justify-content-center" *ngIf="isLoggedIn">
                 <div class="col-sm-4">
-                  <i class="fa fa-heart-o btn"></i>
+                  <i class="fa fa-heart-o btn" (click)="onAddToWishlist(phone); onShowWishListDialog(phone)"></i>
                 </div>
                 <div class="col-sm-4">
-                  <i class="fa fa-shopping-cart btn"></i>
-                </div>
-                <div class="col-sm-4">
-                  <i class="fa fa-eye btn"></i>
+                  <i class="fa fa-shopping-cart btn" (click)="onAddToCart(phone);  onShowCartDialog(phone)"></i>
                 </div>
               </div>
             </div>
           </div>
           <div class="overlay">
             <div class="text">
-              200$
+              {{phone.price | currency}}
             </div>
           </div>
         </div>
     </div>
   </div>
-  <div class="col-xl-3 col-lg-4 col-md-6">
-    <div class="card rounded-0" style="width: 18rem;">
-      <img class="card-img-top" src="../../images/samsungs20.png" alt="Card image cap">
-      <div class="card-body">
-        <h6 class="text-muted text-center">Phone name</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div class="text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-sm-4">
-                <i class="fa fa-heart-o btn"></i>
-              </div>
-              <div class="col-sm-4">
-                <i class="fa fa-shopping-cart btn"></i>
-              </div>
-              <div class="col-sm-4">
-                <i class="fa fa-eye btn"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="overlay">
-          <div class="text">
-            200$
-          </div>
-        </div>
-      </div>
-    </div>
+</div>
+<div class="row justify-content-center" *ngIf="showCartDialog">
+  <div class="col">
+    <app-cart-dialog [phone]="phoneDialog"></app-cart-dialog>
   </div>
-  <div class="col-xl-3 col-lg-4 col-md-6">
-    <div class="card rounded-0" style="width: 18rem;">
-      <img class="card-img-top" src="../../images/product07.png" alt="Card image cap">
-      <div class="card-body">
-        <h6 class="text-muted text-center">Phone name</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div class="text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-sm-4">
-                <i class="fa fa-heart-o btn"></i>
-              </div>
-              <div class="col-sm-4">
-                <i class="fa fa-shopping-cart btn"></i>
-              </div>
-              <div class="col-sm-4">
-                <i class="fa fa-eye btn"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="overlay">
-          <div class="text">
-            200$
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-lg-4 col-md-6">
-    <div class="card rounded-0" style="width: 18rem;">
-      <img class="card-img-top" src="../../images/a51.png" alt="Card image cap">
-      <div class="card-body">
-        <h6 class="text-muted text-center">Phone name</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div class="text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-sm-4">
-                <i class="fa fa-heart-o btn"></i>
-              </div>
-              <div class="col-sm-4">
-                <i class="fa fa-shopping-cart btn"></i>
-              </div>
-              <div class="col-sm-4">
-                <i class="fa fa-eye btn"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="overlay">
-          <div class="text">
-            200$
-          </div>
-        </div>
-      </div>
-    </div>
+</div>
+<div class="row justify-content-center" *ngIf="showWishlistDialog">
+  <div class="col">
+    <app-wishlist-dialog [phone]="phoneWishlistDialog"></app-wishlist-dialog>
   </div>
 </div>
 <div class="row justify-content-center text-center hotdeals mb-5 pb-5 pt-5" #weekly>
@@ -193,101 +95,30 @@
   </div>
 </div>
 
-<div class="row justify-content-center text-center mb-5">
+<div class="row justify-content-center" *ngIf="topSelling.length === 0">
+  <app-spinner></app-spinner>
+</div>
+
+<div class="row justify-content-center text-center mb-5" *ngIf="topSelling.length != 0">
   <div class="col-md-12">
     <div id="carousel-multi" data-interval="4000" class="carousel slide carousel-multi" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
           <div class="row justify-content-center">
-            <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="col-xl-3 col-lg-4 col-md-6 mt-5" *ngFor="let phone of topSelling.slice(0,4)">
               <div class="card rounded-0" style="width: 18rem;">
-                <img class="card-img-top" src="../../images//a51.png" alt="Card image cap">
+                <img class="card-img-top" [src] = phone.image [alt] = phone.name [routerLink]="['/phones/' + phone.name]">
                 <div class="card-body">
-                  <h6 class="text-muted text-center">Phone name</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+                  <h6 class="text-muted text-center">{{phone.name}}</h6>
+                  <p class="card-text">{{phone.desc | shortendesc}} </p>
                     <div class="text-center">
                       <div class="container">
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center" *ngIf="isLoggedIn">
                           <div class="col-sm-4">
-                            <i class="fa fa-heart-o btn"></i>
+                            <i class="fa fa-heart-o btn" (click)="onAddToWishlist(phone); onShowWishListDialog(phone)"></i>
                           </div>
                           <div class="col-sm-4">
-                            <i class="fa fa-shopping-cart btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-eye btn"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <div class="card rounded-0" style="width: 18rem;">
-                <img class="card-img-top" src="../../images//a51.png" alt="Card image cap">
-                <div class="card-body">
-                  <h6 class="text-muted text-center">Phone name</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    <div class="text-center">
-                      <div class="container">
-                        <div class="row justify-content-center">
-                          <div class="col-sm-4">
-                            <i class="fa fa-heart-o btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-shopping-cart btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-eye btn"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <div class="card rounded-0" style="width: 18rem;">
-                <img class="card-img-top" src="../../images//a51.png" alt="Card image cap">
-                <div class="card-body">
-                  <h6 class="text-muted text-center">Phone name</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    <div class="text-center">
-                      <div class="container">
-                        <div class="row justify-content-center">
-                          <div class="col-sm-4">
-                            <i class="fa fa-heart-o btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-shopping-cart btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-eye btn"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <div class="card rounded-0" style="width: 18rem;">
-                <img class="card-img-top" src="../../images//a51.png" alt="Card image cap">
-                <div class="card-body">
-                  <h6 class="text-muted text-center">Phone name</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    <div class="text-center">
-                      <div class="container">
-                        <div class="row justify-content-center">
-                          <div class="col-sm-4">
-                            <i class="fa fa-heart-o btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-shopping-cart btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-eye btn"></i>
+                            <i class="fa fa-shopping-cart btn" (click)="onAddToCart(phone); onShowCartDialog(phone)"></i>
                           </div>
                         </div>
                       </div>
@@ -299,95 +130,20 @@
         </div>
         <div class="carousel-item">
           <div class="row justify-content-center">
-            <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="col-xl-3 col-lg-4 col-md-6 mt-5" *ngFor="let phone of topSelling.slice(4,8)">
               <div class="card rounded-0" style="width: 18rem;">
-                <img class="card-img-top" src="../../images//a51.png" alt="Card image cap">
+                <img class="card-img-top" [src] = phone.image [alt] = phone.name [routerLink]="['/phones/' + phone.name]">
                 <div class="card-body">
-                  <h6 class="text-muted text-center">Phone name</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+                  <h6 class="text-muted text-center">{{phone.name}}</h6>
+                  <p class="card-text">{{phone.desc | shortendesc}}</p>
                     <div class="text-center">
                       <div class="container">
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center" *ngIf="isLoggedIn">
                           <div class="col-sm-4">
-                            <i class="fa fa-heart-o btn"></i>
+                            <i class="fa fa-heart-o btn" (click)="onAddToWishlist(phone); onShowWishListDialog(phone)"></i>
                           </div>
                           <div class="col-sm-4">
-                            <i class="fa fa-shopping-cart btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-eye btn"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <div class="card rounded-0" style="width: 18rem;">
-                <img class="card-img-top" src="../../images//a51.png" alt="Card image cap">
-                <div class="card-body">
-                  <h6 class="text-muted text-center">Phone name</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    <div class="text-center">
-                      <div class="container">
-                        <div class="row justify-content-center">
-                          <div class="col-sm-4">
-                            <i class="fa fa-heart-o btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-shopping-cart btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-eye btn"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <div class="card rounded-0" style="width: 18rem;">
-                <img class="card-img-top" src="../../images//a51.png" alt="Card image cap">
-                <div class="card-body">
-                  <h6 class="text-muted text-center">Phone name</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    <div class="text-center">
-                      <div class="container">
-                        <div class="row justify-content-center">
-                          <div class="col-sm-4">
-                            <i class="fa fa-heart-o btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-shopping-cart btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-eye btn"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <div class="card rounded-0" style="width: 18rem;">
-                <img class="card-img-top" src="../../images//a51.png" alt="Card image cap">
-                <div class="card-body">
-                  <h6 class="text-muted text-center">Phone name</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    <div class="text-center">
-                      <div class="container">
-                        <div class="row justify-content-center">
-                          <div class="col-sm-4">
-                            <i class="fa fa-heart-o btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-shopping-cart btn"></i>
-                          </div>
-                          <div class="col-sm-4">
-                            <i class="fa fa-eye btn"></i>
+                            <i class="fa fa-shopping-cart btn" (click)="onAddToCart(phone); onShowCartDialog(phone)"></i>
                           </div>
                         </div>
                       </div>
@@ -411,21 +167,21 @@
   <div class="col-xl-8 col-md-10 col-sm-10">
     <div class="email text-center">
       <h5 class="mb-4">IF YOU WANT US <strong>TO INFORM YOU</strong> FOR EVERY NEW DEAL. <br>SEND US YOUR EMAIL</h5>
-      <input class="form-control" placeholder="@email">
-      <button class="btn"><i class="fa fa-envelope"></i>Send</button>
+      <input required email class="form-control" placeholder="@email" ngModel name="mail" #mail="ngModel">
+      <button [disabled]="!mail.valid" class="btn" (click)="onSendEmail(mail.value)"><i class="fa fa-envelope"></i>Send</button>
     </div>
     <div class="social text-center pt-2">
       <div class="items">
-        <i class="fa fa-facebook"></i>
+        <a href="https://www.facebook.com/"> <i class="fa fa-facebook"></i></a>
       </div>
       <div class="items">
-        <i class="fa fa-twitter"></i>
+        <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
       </div>
       <div class="items">
-        <i class="fa fa-instagram"></i>
+        <a href="https://instagram.com/"><i class="fa fa-instagram"></i></a>
       </div>
       <div class="items">
-        <i class="fa fa-linkedin"></i>
+        <a href="https://linkedin.com/"><i class="fa fa-linkedin"></i></a>
       </div>
     </div>
   </div>

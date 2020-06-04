@@ -11,6 +11,10 @@ import {PhoneService} from '../phone.service';
 export class PhoneItemComponent implements OnInit{
   @Input() phone: Phone;
   @Input() index: number;
+  phoneDialog: Phone;
+  phoneWishlistDialog: Phone;
+  showWishlistDialog = false;
+  showCartDialog = false;
   isLoggedIn = false;
 
   constructor(private phoneService: PhoneService) {
@@ -39,5 +43,21 @@ export class PhoneItemComponent implements OnInit{
           this.isLoggedIn = false;
         }
       });
+  }
+
+  onShowCartDialog(phone: Phone) {
+    this.phoneDialog = phone;
+    this.showCartDialog = true;
+    setTimeout(() => {
+      this.showCartDialog = null;
+    }, 1500);
+  }
+
+  onShowWishListDialog(phone: Phone) {
+    this.phoneWishlistDialog = phone;
+    this.showWishlistDialog = true;
+    setTimeout(() => {
+      this.showWishlistDialog = null;
+    }, 1500);
   }
 }

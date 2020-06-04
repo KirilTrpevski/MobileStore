@@ -10,6 +10,8 @@ import {PhoneService} from '../phone/phone.service';
 })
 export class WishListComponent implements OnInit {
   phones: Phone[] = [];
+  phoneDialog: Phone;
+  showCartDialog = false;
   constructor(private wishListService: WishListService, private phoneService: PhoneService) { }
 
   ngOnInit(): void {
@@ -27,4 +29,13 @@ export class WishListComponent implements OnInit {
   onDelete(id: number) {
     this.wishListService.deleteFromWislist(id);
   }
+
+  onShowCartDialog(phone: Phone) {
+    this.phoneDialog = phone;
+    this.showCartDialog = true;
+    setTimeout(() => {
+      this.showCartDialog = null;
+    }, 1500);
+  }
+
 }

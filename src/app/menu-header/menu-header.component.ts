@@ -45,10 +45,10 @@ export class MenuHeaderComponent implements OnInit {
     this.phoneService.isAuth()
       .subscribe(auth => {
         if (auth) {
-          console.log('User Loged');
+          // console.log('User Loged');
           this.isLoggedIn = true;
         } else {
-          console.log('User not logged');
+          // console.log('User not logged');
           this.isLoggedIn = false;
         }
       });

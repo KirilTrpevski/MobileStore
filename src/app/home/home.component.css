@@ -1,5 +1,8 @@
 img{
-  max-width: 300px;
+  max-width: 250px;
+  min-width: 250px;
+  min-height: 300px;
+  max-height: 300px;
   float: right;
 }
 .shop {
@@ -130,7 +133,7 @@ transition: 0.2s;
 }
 
 .card:hover .overlay{
-  bottom: -14%;
+  bottom: -13%;
   cursor: pointer;
 }
 
@@ -270,12 +273,30 @@ transition: 0.2s ease-in-out;
 .social i{
  margin-top: 30%;
 }
+.items a{
+  color: #1e1f29;
+}
+.items:hover a{
+ color: #D10024;
+  transition: 0.2s ease-in-out;
+}
+
 .items:hover{
 background-color: #e4e7ed;
 color: #D10024;
 transition: 0.2s ease-in-out;
 cursor: pointer;
 }
-a {
+.footer a {
   color: #77767c;
+}
+.footer a:hover{
+  color: #D10024;
+}
+
+.card-img-top {
+  min-height: 350px;
+  max-height: 350px;
+  max-width: 300px;
+  cursor: pointer;
 }

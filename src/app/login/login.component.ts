@@ -5,6 +5,7 @@ import {auth} from 'firebase';
 import {Observable} from 'rxjs';
 import {AuthService} from './auth/auth.service';
 import {emailVerified} from '@angular/fire/auth-guard';
+import {PhoneService} from '../phone/phone.service';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +16,11 @@ export class LoginComponent implements OnInit {
   email: string;
   user: Observable<any>;
   errorMsg: string;
+  isLoggedIn = false;
   emailSent = false;
 
   constructor(private authService: AuthService, private router: Router,
-              private afsAuth: AngularFireAuth) { }
+              private afsAuth: AngularFireAuth, private phoneService: PhoneService) { }
 
   ngOnInit(): void {
     this.user = this.afsAuth.authState;
@@ -26,6 +28,8 @@ export class LoginComponent implements OnInit {
     const url = this.router.url;
 
     this.confirmSignIn(url);
+
+    this.getCurrentUser();
 
   }
 
@@ -68,5 +72,18 @@ export class LoginComponent implements OnInit {
 
   loginWithGoogle() {
     this.authService.onGoogleLogin();
+  }
+
+  getCurrentUser() {
+    this.phoneService.isAuth()
+      .subscribe(auth => {
+        if (auth) {
+          console.log('User Loged');
+          this.isLoggedIn = true;
+        } else {
+          console.log('User not logged');
+          this.isLoggedIn = false;
+        }
+      });
   }
 }

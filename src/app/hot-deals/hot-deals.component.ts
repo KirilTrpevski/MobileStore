@@ -10,17 +10,28 @@ import {Phone} from '../shared/phone.model';
 export class HotDealsComponent implements OnInit {
 
   samsungList1: Phone[] = [];
+  sonyList: Phone[] = [];
+  hiaweiList: Phone[] = [];
   phones: Phone[] = [];
+  phoneDialog: Phone;
+  phoneWishlistDialog: Phone;
+  showWishlistDialog = false;
+  showCartDialog = false;
   isLoggedIn = false;
   constructor(private phoneService: PhoneService) { }
 
   ngOnInit() {
-    // this.samsungList1 = this.phoneService.getSamsung();
     this.phoneService.onFetchPhones()
       .subscribe((phones: Phone[]) => {
         for (let phone of phones) {
           if (phone.brand.toLowerCase() === 'samsung') {
             this.samsungList1.push(phone);
+          }
+          if (phone.brand.toLowerCase() === 'sony') {
+            this.sonyList.push(phone);
+          }
+          if (phone.brand.toLowerCase() === 'huawei') {
+            this.hiaweiList.push(phone);
           }
         }
       });
@@ -54,6 +65,22 @@ export class HotDealsComponent implements OnInit {
       phone.displaySize, phone.displayResolution, phone.gpu, phone.storage, phone.camera, phone.os, phone.dimesions,
       phone.weight, phone.batery, phone.pieces);
     this.phoneService.addedPhoneToWishList(phone);
+  }
+
+  onShowCartDialog(phone: Phone) {
+    this.phoneDialog = phone;
+    this.showCartDialog = true;
+    setTimeout(() => {
+      this.showCartDialog = null;
+    }, 1500);
+  }
+
+  onShowWishListDialog(phone: Phone) {
+    this.phoneWishlistDialog = phone;
+    this.showWishlistDialog = true;
+    setTimeout(() => {
+      this.showWishlistDialog = null;
+    }, 1500);
   }
 
 }

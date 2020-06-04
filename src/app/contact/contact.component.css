@@ -59,3 +59,8 @@ form{
 a {
   color: #77767c;
 }
+
+textarea.ng-touched.ng-invalid,
+input.ng-touched.ng-invalid {
+  border: #bb0000 1px solid;
+}

@@ -11,13 +11,21 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-sm-4">
-            <i (click)="addToWishList(phone)" class="fa fa-heart-o btn"></i>
+            <i (click)="addToWishList(phone); onShowWishListDialog(phone)" class="fa fa-heart-o btn"></i>
           </div>
           <div class="col-sm-4">
-            <i (click)="addToCart(phone)" class="fa fa-shopping-cart btn"></i>
+            <i (click)="addToCart(phone); onShowCartDialog(phone)" class="fa fa-shopping-cart btn"></i>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="row justify-content-center" *ngIf="showCartDialog">
+  <app-cart-dialog [phone]="phoneDialog"></app-cart-dialog>
+</div>
+
+<div class="row justify-content-center" *ngIf="showWishlistDialog">
+  <app-wishlist-dialog [phone]="phoneWishlistDialog"></app-wishlist-dialog>
 </div>

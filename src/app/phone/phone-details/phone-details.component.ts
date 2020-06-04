@@ -12,6 +12,10 @@ export class PhoneDetailsComponent implements OnInit {
   phone: Phone;
   name: string;
   id: number;
+  phoneDialog: Phone;
+  phoneWishlistDialog: Phone;
+  showWishlistDialog = false;
+  showCartDialog = false;
   isLoggedIn = false;
   constructor(private route: ActivatedRoute, private phoneService: PhoneService) { }
 
@@ -47,6 +51,22 @@ export class PhoneDetailsComponent implements OnInit {
           this.isLoggedIn = false;
         }
       });
+  }
+
+  onShowCartDialog(phone: Phone) {
+    this.phoneDialog = phone;
+    this.showCartDialog = true;
+    setTimeout(() => {
+      this.showCartDialog = null;
+    }, 1500);
+  }
+
+  onShowWishListDialog(phone: Phone) {
+    this.phoneWishlistDialog = phone;
+    this.showWishlistDialog = true;
+    setTimeout(() => {
+      this.showWishlistDialog = null;
+    }, 1500);
   }
 
 }

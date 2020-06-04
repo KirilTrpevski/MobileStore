@@ -1,28 +1,36 @@
 <div class="row justify-content-center mt-4">
   <div class="col-md-6">
     <h3 class="dropline" #write>Drop us a line</h3>
-    <form>
+    <form #form="ngForm" (ngSubmit)="onSendEmail()">
       <div class="form-group">
         <label>Name</label>
-        <input class="form-control" placeholder="Name">
+        <input required class="form-control" placeholder="Firsntame" ngModel name="firstname" #firstname="ngModel">
+        <span class="small" style="color: #D10024;" *ngIf="firstname.invalid && firstname.touched">This field is required</span>
       </div>
       <div class="form-group">
         <label>Lastname</label>
-        <input class="form-control" placeholder="Lastname">
+        <input required class="form-control" placeholder="Lastname" ngModel name="lastname" #lastname="ngModel">
+        <span class="small" style="color: #D10024;" *ngIf="lastname.invalid && lastname.touched">This field is required</span>
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input class="form-control" placeholder="@email">
+        <input required email class="form-control" placeholder="@email" ngModel name="email" #email="ngModel">
+        <span class="small" style="color: #D10024;" *ngIf="email.invalid && email.touched">Please enter a valid email</span>
       </div>
       <div class="form-group">
-        <label>Email</label>
-        <textarea class="form-control" rows="4" placeholder="Ask us a question.."></textarea>
+        <label>Description</label>
+        <textarea required class="form-control" rows="4" placeholder="Ask us a question.."
+        ngModel name="description" #description="ngModel"></textarea>
+        <span class="small" style="color: #D10024;" *ngIf="description.invalid && description.touched">This field is required</span>
       </div>
       <div class="form-group">
-        <button class="btn"><i class="fa fa-send"></i> Send</button>
+        <button (click)="onSendEmail()" [disabled]="!form.valid" class="btn"><i class="fa fa-send"></i> Send</button>
       </div>
     </form>
   </div>
+</div>
+<div class="row justify-content-center" *ngIf="emailSent">
+  <app-email-dialog [name]="name"></app-email-dialog>
 </div>
 <div class="row justify-content-center text-center">
   <div class="col-md-4">

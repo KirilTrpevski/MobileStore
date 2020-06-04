@@ -14,7 +14,6 @@ import {AuthService} from '../login/auth/auth.service';
 export class PhoneService {
 
   phones: Phone[] = [];
-  samsungList: Phone[] = [];
 
   constructor(private http: HttpClient, private afsAuth: AngularFireAuth, private cartService: ShoppingCartService,
               private wishListService: WishListService, private authService: AuthService) {

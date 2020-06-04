@@ -28,6 +28,11 @@ import {WishListService} from './wish-list/wish-list.service';
 import {AuthComponent} from './login/auth/auth.component';
 import {ShortenPipe} from './shared/shorten.pipe';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import {ShortenDescPipe} from './shared/shortendesc.pipe';
+import { CartDialogComponent } from './shared/cart-dialog/cart-dialog.component';
+import { WishlistDialogComponent } from './shared/wishlist-dialog/wishlist-dialog.component';
+import { RemovedDialogComponent } from './shared/removed-dialog/removed-dialog.component';
+import { EmailDialogComponent } from './shared/email-dialog/email-dialog.component';
 
 
 @NgModule({
@@ -46,7 +51,12 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     WishListComponent,
     AuthComponent,
     ShortenPipe,
-    SpinnerComponent
+    SpinnerComponent,
+    ShortenDescPipe,
+    CartDialogComponent,
+    WishlistDialogComponent,
+    RemovedDialogComponent,
+    EmailDialogComponent
   ],
     imports: [
         BrowserModule,

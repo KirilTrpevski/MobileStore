@@ -30,12 +30,10 @@ export class AuthService {
   }
 
   onLoginWithFacebook() {
-    // console.log('facebb');
     this.afAuth.signInWithPopup(new auth.FacebookAuthProvider());
   }
 
   onGoogleLogin() {
-    // console.log('google');
     this.afAuth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 

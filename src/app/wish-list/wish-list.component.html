@@ -5,9 +5,15 @@
       <div class="card-body">
         <h5 class="card-title">{{phone.name}}</h5>
         <p class="card-text text-muted">{{phone.price | currency}}</p>
-        <button (click)="addToCart(phone)" class="btn rounded-0">Add to cart</button>
+        <button (click)="addToCart(phone); onShowCartDialog(phone)" class="btn rounded-0">Add to cart</button>
         <button (click)="onDelete(i)" class="btn rounded-0 mt-2">Remove from wishlist</button>
       </div>
     </div>
   </div>
+</div>
+<div class="row justify-content-center" *ngIf="showCartDialog">
+  <app-cart-dialog [phone]="phoneDialog"></app-cart-dialog>
+</div>
+<div class="row justify-content-center" *ngIf="phones.length === 0">
+  <h3>The wishlist is empty</h3>
 </div>
