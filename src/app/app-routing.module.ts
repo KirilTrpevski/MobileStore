@@ -13,20 +13,22 @@ import {WishListComponent} from './wish-list/wish-list.component';
 
 import {AuthGuard} from './login/auth/auth.guard';
 import {AuthComponent} from './login/auth/auth.component';
+import {PageNotFoundComponent} from './shared/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'mobile-admin', component: AuthComponent },
-  {path: 'new', component: NewComponent, canActivate: [AuthGuard]},
-  {path: 'login', component: LoginComponent},
+  { path: 'new', component: NewComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent },
   { path: 'hot-deals', component: HotDealsComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'phones', component: PhoneComponent},
-  {path: 'shopping-cart', component: ShoppingCartComponent},
-  {path: 'wish-list', component: WishListComponent},
-  {path: 'phones/:name', component: PhoneDetailsComponent, resolve: [PhoneResolverService]}
+  { path: 'phones', component: PhoneComponent },
+  { path: 'shopping-cart', component: ShoppingCartComponent },
+  { path: 'wish-list', component: WishListComponent },
+  { path: 'phones/:name', component: PhoneDetailsComponent, resolve: [PhoneResolverService] },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

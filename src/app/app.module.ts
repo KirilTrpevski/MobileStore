@@ -33,6 +33,7 @@ import { CartDialogComponent } from './shared/cart-dialog/cart-dialog.component'
 import { WishlistDialogComponent } from './shared/wishlist-dialog/wishlist-dialog.component';
 import { RemovedDialogComponent } from './shared/removed-dialog/removed-dialog.component';
 import { EmailDialogComponent } from './shared/email-dialog/email-dialog.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { EmailDialogComponent } from './shared/email-dialog/email-dialog.compone
     CartDialogComponent,
     WishlistDialogComponent,
     RemovedDialogComponent,
-    EmailDialogComponent
+    EmailDialogComponent,
+    PageNotFoundComponent
   ],
     imports: [
         BrowserModule,
