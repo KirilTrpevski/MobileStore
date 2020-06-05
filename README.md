@@ -20,7 +20,7 @@
 ## Работна верзија
 
 Веб апликацијата е хостирана преку firebase hosting и е достапна на следниот линк 
-<pre>https://mobilestore-2df05.web.app/hot-deals</pre>
+<pre>https://mobilestore-2df05.web.app/home</pre>
 
 ## Инсталација
 
