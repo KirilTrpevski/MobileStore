@@ -6,7 +6,7 @@
 <!--    -->
 <!--  </div>-->
 <!--</div>-->
-<div class="row">
+<div class="row justify-content-center">
   <div class="col-md-3 mt-4">
     <div class="filter">
       <h5>filter Brands</h5>
@@ -38,13 +38,15 @@
       </div>
 
     </div>
-    <h5 class="mt-4">sorting order</h5>
-    <div class="byprice">
-      <select class="form-control rounded-0" (change)="sorting($event.target.value)">
-        <option value="nothing">Select a sorting order</option>
-        <option value="ascending">Sort by price &#x25B2;</option>
-        <option value="descending">Sort by price &#x25BC;</option>
-      </select>
+    <div class="centered-price-sorting">
+      <h5 class="mt-4">sorting order</h5>
+      <div class="byprice">
+        <select class="form-control rounded-0" (change)="sorting($event.target.value)">
+          <option value="nothing">Select a sorting order</option>
+          <option value="ascending">Sort by price &#x25B2;</option>
+          <option value="descending">Sort by price &#x25BC;</option>
+        </select>
+      </div>
     </div>
   </div>
   <div class="container w-75">
@@ -54,8 +56,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mt-4 phones justify-content-md-end" *ngFor="let filtered of filteredProducts; let i = index">
-        <app-phone-item [phone]="filtered" [index] = "i"></app-phone-item>
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mt-4 phones" *ngFor="let filtered of filteredProducts; let i = index">
+        <app-phone-item class="rem" [phone]="filtered" [index] = "i"></app-phone-item>
       </div>
     </div>
   </div>

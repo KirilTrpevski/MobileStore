@@ -50,3 +50,21 @@ img{
   transition: 0.3s ease-in-out;
   color: #D10024;
 }
+
+@media only screen and (min-width: 858px) {
+  .card {
+    width: 13rem;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 857px) {
+  .card {
+    width: 10rem;
+    height: 100%;
+  }
+  .card-img-top {
+    max-height: 170px;
+    min-height: 230px;
+  }
+}

@@ -120,6 +120,20 @@ transition: 0.2s;
     display: none;
   }
 }
+@media only screen and (max-width: 476px) {
+  .email input {
+    border-radius: 20px 20px 20px 20px;
+  }
+  .email .btn{
+    margin-bottom: 2px;
+    margin-top: 5px;
+    width: 130px;
+    border-radius: 20px 20px 20px 20px;
+    background-color: #D10024;
+    color: white;
+    font-weight: bold;
+  }
+}
 
 .overlay{
   position: absolute;
@@ -209,20 +223,25 @@ transition: 0.2s;
 .email strong{
   font-weight: bold;
 }
-.email input{
-  display: inline-block;
-  width: 300px;
-  border-radius: 20px 0 0 20px;
-  border-right: none;
+
+@media only screen and (min-width: 476px) {
+  .email input{
+    display: inline-block;
+    width: 300px;
+    border-radius: 20px 0 0 20px;
+    border-right: none;
+  }
+  .email .btn{
+    margin-bottom: 2px;
+    width: 130px;
+    border-radius: 0 20px 20px 0;
+    background-color: #D10024;
+    color: white;
+    font-weight: bold;
+  }
 }
-.email .btn{
-  margin-bottom: 2px;
-  width: 130px;
-  border-radius: 0 20px 20px 0;
-  background-color: #D10024;
-  color: white;
-  font-weight: bold;
-}
+
+
 .fa-envelope{
   margin: 0 10px 0 0;
 }
